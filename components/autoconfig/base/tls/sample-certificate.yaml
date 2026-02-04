@@ -24,6 +24,12 @@ spec:
     - client auth
   dnsNames:
     - 'ivia-wrp-ibm-verify.apps.itz-jsmlpv.infra01-lb.lon04.techzone.ibm.com'
+  keystores:
+    pkcs12:
+      create: true
+      passwordSecretRef:
+        name: pkcs12-pass
+        key: password
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer

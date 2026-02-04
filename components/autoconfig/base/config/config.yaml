@@ -36,6 +36,9 @@ container:
     - name: "rt_profile_keys"
       signer_certificates:
       - "/tmp/pki/postgresql.pem"
+      personal_certificates:
+      - path: "/tmp/pki/keystore.p12"
+        secret: !secret ibm-verify/pkcs12-pass:password
   cluster:
     runtime_database:
       host: "ivia-runtime-db.ibm-verify.svc.cluster.local"

@@ -25,11 +25,11 @@ container:
       - name: "shared_volume"
         access: "w"
   ssl_certificates:
-    - name: isvd
-      load_certificates:
-        - port: 9636
-          server: isvd-isvd-master-pvc
-          label: isvd
+    # - name: isvd
+    #   load_certificates:
+    #     - port: 9636
+    #       server: isvd-isvd-master-pvc
+    #       label: isvd
     - name: "lmi_trust_store"
       signer_certificates:
       - "/tmp/pki/postgresql.pem"
@@ -61,14 +61,14 @@ webseal:
     admin_cert_lifetime: 1460
     domain: "Default"
     policy_server: local
-    user_registry: ldap
-    ldap:
-      host: "isvd-isvd-master-pvc"
-      port: 9636
-      dn: !secret ibm-verify/ivia-secrets:ldap-binddn
-      dn_password: !secret ibm-verify/ivia-secrets:ldap-passwd
-      cert_label: isvd
-      key_file: isvd
+    user_registry: local
+    # ldap:
+    #   host: "isvd-isvd-master-pvc"
+    #   port: 9636
+    #   dn: !secret ibm-verify/ivia-secrets:ldap-binddn
+    #   dn_password: !secret ibm-verify/ivia-secrets:ldap-passwd
+    #   cert_label: isvd
+    #   key_file: isvd
   reverse_proxy:
      - name: "default"
        # The host parameter will always be the hostname of the config container in a container deployment
@@ -78,10 +78,8 @@ webseal:
        https:
          enabled: "yes"
        ldap:
-         ssl: "yes"
-         port: 9636
-         cert_file: isvd
-         key_file: isvd
+         ssl_yn: "no"
+         port: 389`
        domain: "Default"
        junctions:
          - junction_point: "/demo"

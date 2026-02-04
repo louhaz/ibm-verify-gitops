@@ -23,7 +23,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-    - 'sample-endpoint.apps.67ed09ced6d44283b3abd409.eu1.techzone.ibm.com'
+    - 'ivia-wrp-ibm-verify.apps.itz-jsmlpv.infra01-lb.lon04.techzone.ibm.com'
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer

@@ -92,9 +92,9 @@ spec:
           image: icr.io/ivia/ivia-config:11.0.1.0
           resources:
             limits:
-              cpu: "1"
+              cpu: "2"
               ephemeral-storage: 20Gi
-              memory: 1Gi
+              memory: 2Gi
             requests:
               cpu: 100m
               ephemeral-storage: 200Mi

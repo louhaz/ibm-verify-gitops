@@ -92,14 +92,15 @@ webseal:
            junction_type: "tcp"
            server_hostname: demo-app
            server_port: 8080
-federations:
-- name: "w3id-test"
-  protocol: "SAML2_0"
-  template_name: "QuickConnect"
-  point_of_contact_url: "https://test.login.w3.ibm.com/saml"
-  provider_id: ""
-  decrypt_keystore: "rt_profile_keys"
-  decrypt_key_label: ","
-  signing_keystore: "rt_profile_keys"
-  signing_key_label: ","
-  sso_service_binding: "redirect"
+federation:
+  federations:
+  - name: "w3id-test"
+    protocol: "SAML2_0"
+    template_name: "QuickConnect"
+    point_of_contact_url: "https://test.login.w3.ibm.com/saml"
+    provider_id: ""
+    decrypt_keystore: "rt_profile_keys"
+    decrypt_key_label: ","
+    signing_keystore: "rt_profile_keys"
+    signing_key_label: ","
+    sso_service_binding: "redirect"

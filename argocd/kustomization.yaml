@@ -38,7 +38,7 @@ patches:
   patch: |-
     - op: add
       path: /spec/template/spec/source/repoURL
-      value: https://github.com/Nordic-MVP-GitOps-Repos/ibm-verify-gitops.git
+      value: https://github.com/louhaz/ibm-verify-gitops
     - op: add
       path: /spec/template/spec/source/targetRevision
       value: HEAD

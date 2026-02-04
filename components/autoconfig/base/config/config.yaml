@@ -37,7 +37,8 @@ container:
       signer_certificates:
       - "/tmp/pki/postgresql.pem"
       personal_certificates:
-      - path: "/tmp/pki/keystore.p12"
+      - name: sample
+        path: "/tmp/pki/keystore.p12"
         secret: !secret ibm-verify/pkcs12-pass:password
   cluster:
     runtime_database:

@@ -92,6 +92,12 @@ webseal:
            junction_type: "tcp"
            server_hostname: demo-app
            server_port: 8080
+         - junction_point: "/cert-helper"
+           description: "Unauthenticated cert helper junction"
+           junction_type: "tcp"
+           server_hostname: demo-app
+           server_port: 8080
+           basic_auth_mode: "ignore"
 federation:
   federations:
   - name: "w3id-test"

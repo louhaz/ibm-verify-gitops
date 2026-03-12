@@ -98,18 +98,16 @@ webseal:
            server_hostname: demo-app
            server_port: 8080
            basic_auth_mode: "ignore"
-       acl_attachments:
-         - path: "/cert-helper"
-           acl: "default-webseal"
-       authentication_levels:
-         - name: "unauthenticated"
-           level: 0
+       pops:
+         - name: "cert-helper-pop"
+           description: "Allow unauthenticated access to cert-helper"
+           quality_of_protection: "none"
+           ip_auth:
+             - network: "0.0.0.0"
+               netmask: "0.0.0.0"
+               auth_level: 0
            attachments:
              - path: "/cert-helper"
-       pop:
-         - path: "/cert-helper"
-           pop: "anyauth"
-           quality_of_protection: "none"
 federation:
   federations:
   - name: "w3id-test"

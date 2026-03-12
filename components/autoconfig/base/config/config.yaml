@@ -69,7 +69,7 @@ webseal:
         ip_auth:
           any_other_network: "0"
     reverse_proxies:
-      - host: ivia-wrp
+      - host: ivia-config
         instance: default
         pops:
           - name: "cert-helper-pop"

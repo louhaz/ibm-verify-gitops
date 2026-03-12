@@ -98,7 +98,6 @@ webseal:
            server_hostname: demo-app
            server_port: 8080
            basic_auth_mode: "ignore"
-           http_header_identity: "yes"
        acl_attachments:
          - path: "/cert-helper"
            acl: "default-webseal"

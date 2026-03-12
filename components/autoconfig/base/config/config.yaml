@@ -62,8 +62,8 @@ container:
 webseal:
   pdadmin:
     pops:
-      - name: "cert-helper-pop"
-        description: "Allow unauthenticated access"
+      - name: "acme-challenge-pop"
+        description: "Allow unauthenticated access for ACME challenges"
         tod_access: "anytime"
         audit_level: "none"
         ip_auth:
@@ -72,9 +72,9 @@ webseal:
       - host: ivia-config
         instance: default
         pops:
-          - name: "cert-helper-pop"
+          - name: "acme-challenge-pop"
             junctions:
-              - /cert-helper
+              - /.well-known
   runtime:
     admin_user: sec_master
     admin_password: !secret ibm-verify/ivia-secrets:sec-passwd
@@ -113,12 +113,18 @@ webseal:
            junction_type: "tcp"
            server_hostname: demo-app
            server_port: 8080
-         - junction_point: "/cert-helper"
-           description: "Unauthenticated junction to demo-app"
+         - junction_point: "/.well-known"
+           description: "ACME HTTP-01 challenge endpoint"
            junction_type: "tcp"
            server_hostname: demo-app
            server_port: 8080
            basic_auth_mode: "ignore"
+       stanza_configuration:
+         - operation: "add"
+           resource: "webseald.conf"
+           stanza: "junction:/.well-known"
+           entry: "auth-challenge-type"
+           value: "none"
 federation:
   federations:
   - name: "w3id-test"

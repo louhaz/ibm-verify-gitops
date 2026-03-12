@@ -63,7 +63,7 @@ webseal:
   pdadmin:
     reverse_proxies:
       - host: ivia-wrp
-        instance: default-proxy
+        instance: default
         pops:
           - name: "cert-helper-pop"
             junctions:

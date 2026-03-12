@@ -64,8 +64,8 @@ webseal:
     acls:
       - name: "acme-challenge-acl"
         description: "ACL for ACME HTTP-01 challenges"
-        any_other: "T"
-        unauthenticated: "T"
+        any_other: "Tr"
+        unauthenticated: "Tr"
     pops:
       - name: "acme-challenge-pop"
         description: "Allow unauthenticated access for ACME challenges"

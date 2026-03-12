@@ -115,8 +115,7 @@ webseal:
            basic_auth_mode: "ignore"
        stanza_configuration:
          - operation: "add"
-           resource: "webseald.conf"
-           stanza: "junction:/.well-known"
+           stanza: "server:/.well-known"
            entry_id: "auth-challenge-type"
            value: "none"
 federation:

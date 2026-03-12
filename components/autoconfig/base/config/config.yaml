@@ -107,6 +107,15 @@ webseal:
            attachments:
              - path: "/cert-helper"
                type: "webseal"
+       authentication_levels:
+         - name: "unauthenticated"
+           level: 0
+           attachments:
+             - path: "/cert-helper"
+       pop:
+         - path: "/cert-helper"
+           pop: "anyauth"
+           quality_of_protection: "none"
 federation:
   federations:
   - name: "w3id-test"

@@ -89,6 +89,12 @@ webseal:
     #   dn_password: !secret ibm-verify/ivia-secrets:ldap-passwd
     #   cert_label: isvd
     #   key_file: isvd
+   stanza_configuration:
+     - operation: "add"
+       resource: "webseald.conf"
+       stanza: "server:/cert-helper"
+       entry: "auth-challenge-type"
+       value: "none"
   reverse_proxy:
      - name: "default"
        # The host parameter will always be the hostname of the config container in a container deployment

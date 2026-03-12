@@ -89,7 +89,7 @@ webseal:
     #   dn_password: !secret ibm-verify/ivia-secrets:ldap-passwd
     #   cert_label: isvd
     #   key_file: isvd
-   stanza_configuration:
+    stanza_configuration:
      - operation: "add"
        resource: "webseald.conf"
        stanza: "server:/cert-helper"

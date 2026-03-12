@@ -60,6 +60,14 @@ container:
   #  files:
   #  - /tmp/config/mapping-rules/
 webseal:
+  pdadmin:
+    reverse_proxies:
+      - host: ivia-wrp
+        instance: default-proxy
+        pops:
+          - name: "cert-helper-pop"
+            junctions:
+              - /cert-helper
   runtime:
     admin_user: sec_master
     admin_password: !secret ibm-verify/ivia-secrets:sec-passwd
@@ -98,16 +106,6 @@ webseal:
            server_hostname: demo-app
            server_port: 8080
            basic_auth_mode: "ignore"
-       pops:
-         - name: "cert-helper-pop"
-           description: "Allow unauthenticated access to cert-helper"
-           quality_of_protection: "none"
-           ip_auth:
-             - network: "0.0.0.0"
-               netmask: "0.0.0.0"
-               auth_level: 0
-           attachments:
-             - path: "/cert-helper"
 federation:
   federations:
   - name: "w3id-test"

@@ -118,6 +118,10 @@ webseal:
            stanza: "server:/.well-known"
            entry_id: "auth-challenge-type"
            value: "none"
+         - operation: "add"
+           stanza: "server"
+           entry_id: unprotected-uri
+           value: "/.well-known/*"
 federation:
   federations:
   - name: "w3id-test"

@@ -93,11 +93,20 @@ webseal:
            server_hostname: demo-app
            server_port: 8080
          - junction_point: "/cert-helper"
-           description: "Unauthenticated cert helper junction"
+           description: "Unauthenticated junction to cert-helper for http-01 acme challenges"
            junction_type: "tcp"
            server_hostname: demo-app
            server_port: 8080
            basic_auth_mode: "ignore"
+       acls:
+         - name: "public-acl"
+           description: "ACL for unauthenticated access"
+           attributes:
+             - type: "T"
+               value: "m"
+           attachments:
+             - path: "/cert-helper"
+               type: "webseal"
 federation:
   federations:
   - name: "w3id-test"

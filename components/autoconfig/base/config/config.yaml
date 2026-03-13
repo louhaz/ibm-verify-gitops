@@ -122,6 +122,7 @@ webseal:
            server_hostname: demo-app
            server_port: 8080
            basic_auth_mode: "ignore"
+           transparent_path_junction: "yes"
 federation:
   federations:
   - name: "w3id-test"
